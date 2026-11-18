@@ -4,12 +4,13 @@ const express = require('express');
 const PORT = process.env.PORT
 
 const sequelize = require('./database/database')
-const studentRouter = require('./routers/studentRouter')
+const documentRouter = require('./routers/documentRouter')
 
 const app = express();
 
 app.use(express.json());
-app.use(studentRouter);
+app.use(documentRouter)
+
 
 
 const dbConnect = async()=>{

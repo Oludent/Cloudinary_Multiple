@@ -2,26 +2,22 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Students', {
+    await queryInterface.createTable('Documents_Portals', {
       id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID
       },
-      fullName: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      email: {
+      username: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true
       },
-      phone: {
+      displayPicture: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
       },
-      profilePicture: {
+      documents: {
         type: Sequelize.JSON,
         allowNull: false
       },
@@ -36,6 +32,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Students');
+    await queryInterface.dropTable('Documents_Portals');
   }
 };

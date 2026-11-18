@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Student extends Model {
+  class Documents_Portal extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,30 +13,26 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Student.init({
-   id: {
+  Documents_Portal.init({
+  id: {
         allowNull: false,
         primaryKey: true,
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4
       },
-      fullName: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      email: {
+      username: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true
       },
-      phone: {
+      displayPicture: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
       },
-      profilePicture: {
+      documents: {
         type: DataTypes.JSON,
         allowNull: false,
-        defaultValue: {}
+        defaultValue: []
       },
       createdAt: {
         allowNull: false,
@@ -48,9 +44,9 @@ module.exports = (sequelize, DataTypes) => {
       }
   }, {
     sequelize,
-    modelName: 'Student',
-    tableName: 'Students',
+    modelName: 'Documents_Portal',
+    tableName: 'Documents_Portals',
     timestamps: true
   });
-  return Student;
+  return Documents_Portal;
 };
